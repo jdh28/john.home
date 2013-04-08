@@ -1,6 +1,4 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If running interactively, then:
 if [ "$PS1" ]; then
@@ -9,15 +7,12 @@ if [ "$PS1" ]; then
     # export HISTCONTROL=ignoredups
 
     # enable color support of ls and also add handy aliases
+	export LS_OPTIONS='--color=auto -h'
     eval `dircolors -b`
-    alias ls='ls --color=auto -h'
-    #alias dir='ls --color=auto --format=vertical'
-    #alias vdir='ls --color=auto --format=long'
-
-    # some more ls aliases
-    alias ll='ls -l'
-    alias la='ls -A'
-    alias l='ls -lA'
+	alias ls='ls $LS_OPTIONS'
+	alias ll='ls $LS_OPTIONS -l'
+	alias la='ls $LS_OPTIONS -A'
+	alias l='ls $LS_OPTIONS -lA'
 
     function jobcount {
         c=`jobs | wc -l | tr -d " "`
@@ -40,9 +35,9 @@ if [ "$PS1" ]; then
 
     # enable programmable completion features (you don't need to enable
     # this, if it's already enabled in /etc/bash.bashrc).
-    #if [ -f /etc/bash_completion ]; then
-    #  . /etc/bash_completion
-    #fi
+    if [ -f /etc/bash_completion ]; then
+      . /etc/bash_completion
+    fi
 fi
 
 export EDITOR=/usr/bin/vi

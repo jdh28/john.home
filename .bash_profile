@@ -11,10 +11,9 @@ if [ -d ~/bin ] ; then
 fi
 
 export PATH=$PATH
-export CVS_RSH=/usr/bin/ssh
 export TERM=linux
 
-# include local .bash_profile it it exists
+# include local .bash_profile if it exists
 if [ -f ~/.bash_profile.local ]; then
     source ~/.bash_profile.local
 fi
