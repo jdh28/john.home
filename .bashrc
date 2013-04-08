@@ -22,12 +22,18 @@ if [ "$PS1" ]; then
     }
 
     # set a fancy prompt
-    PS1='\[\e[34;1m\]\h:\w `jobcount`\$ \[\e[0m\]'
+	if [ `whoami` = "root" ]
+	then
+		promptcolour='31'
+	else
+		promptcolour='34'
+	fi
+	export PS1='\[\e[${promptcolour};1m\]\h:\w `jobcount`\$ \[\e[0m\]'
 
     # If this is an xterm set the title to user@host:dir
     case $TERM in
     xterm*)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+        export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
         ;;
     *)
         ;;
