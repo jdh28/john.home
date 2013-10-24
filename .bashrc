@@ -17,7 +17,7 @@ if [ "$PS1" ]; then
     function jobcount {
         c=`jobs | wc -l | tr -d " "`
         if [ $c -gt 0 ]; then
-            echo "[$c] "
+            echo " [$c]"
         fi
     }
 
@@ -28,16 +28,9 @@ if [ "$PS1" ]; then
 	else
 		promptcolour='34'
 	fi
-	export PS1='\[\e[${promptcolour};1m\]\h:\w `jobcount`\$ \[\e[0m\]'
-
-    # If this is an xterm set the title to user@host:dir
-    case $TERM in
-    xterm*)
-        export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-        ;;
-    *)
-        ;;
-    esac
+	export GIT_PROMPT_START='\[\e[${promptcolour};1m\]\h:\w`jobcount`\[\e[0m\]'
+	export GIT_PROMPT_END=' \[\e[${promptcolour};1m\]\$ \[\e[0m\]'
+	. ~/.home/gitprompt.sh
 
     # enable programmable completion features (you don't need to enable
     # this, if it's already enabled in /etc/bash.bashrc).
