@@ -2,3 +2,8 @@
 	ui = true
 [include]
 	path = .gitconfig.local
+[alias]
+	st = status
+	ci = commit
+	cia = commit --amend
+	co = checkout
