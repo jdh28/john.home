@@ -1,4 +1,4 @@
-umask 022
+umask 002
 
 # include .bashrc if it exists
 if [ -f ~/.bashrc ]; then
