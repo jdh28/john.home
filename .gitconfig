@@ -7,5 +7,6 @@
 	ci = commit
 	cia = commit --amend
 	co = checkout
+	lg = "log --graph --oneline --all --decorate --topo-order"
 [push]
 	default = simple
