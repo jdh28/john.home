@@ -7,6 +7,6 @@
 	ci = commit
 	cia = commit --amend
 	co = checkout
-	lg = "log --graph --oneline --all --decorate --topo-order"
+	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches --topo-order"
 [push]
 	default = simple
