@@ -1,3 +1,5 @@
+[core]
+	editor = vi
 [color]
 	ui = true
 [include]
@@ -6,7 +8,17 @@
 	st = status
 	ci = commit
 	cia = commit --amend
+	cif = commit --fixup
 	co = checkout
-	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches --topo-order"
+	lg = log --color --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold cyan)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit
+	rbc = rebase --continue
+	cob = checkout -b
+	cp = cherry-pick
 [push]
 	default = simple
+[rebase]
+	autoStash = false
+	autoSquash = true
+[user]
+	name = John Hall
+	email = john.hall@xjtag.com
