@@ -22,3 +22,5 @@
 [user]
 	name = John Hall
 	email = john.hall@xjtag.com
+[init]
+	defaultBranch = master
